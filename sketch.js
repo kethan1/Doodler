@@ -1,9 +1,11 @@
 let p5js_namespace = function(sketch) {
     let canvas, lineWidth, drawing;
+    let offsetX = 0;
+    let offsetY = 0;
 
     sketch.setup = function() {
         canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
-        canvas.position(0, 0);
+        canvas.position(offsetX, offsetY);
         canvas.style('pointer-events', 'none');
         sketch.clear();
         drawing = false;
@@ -27,10 +29,7 @@ let p5js_namespace = function(sketch) {
         if (sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
             if (sketch.keyCode === 90) {
                 drawing = !drawing;
-                if (drawing)
-                    canvas.style('pointer-events', 'auto');
-                else
-                    canvas.style('pointer-events', 'none');
+                canvas.style('pointer-events', drawing ? 'auto': 'none');
             } else if (sketch.keyCode === 40 && lineWidth > 1) {
                 lineWidth--;
             } else if (sketch.keyCode === 38) {
@@ -39,8 +38,7 @@ let p5js_namespace = function(sketch) {
                 sketch.clear();
             }
         }
-        
     }
 }
 
-var myp5 = new p5(p5js_namespace);
+let p5js_instance = new p5(p5js_namespace);
