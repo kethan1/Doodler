@@ -7,5 +7,8 @@
             "<all_urls>"
         ],
         "js": ["p5.min.js", "sketch.js"]
-    }]
+    }],
+    "icons": {
+        "128": "doodler128.png"
+    }
 }

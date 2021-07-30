@@ -19,8 +19,8 @@ let p5js_namespace = function(sketch) {
     }
 
     /**
-     * @desc Ctrl-Shift-Z and clicked to draw. Up arrow to increase line width. Down arrow to
-     * decrease line width. Ctrl-M to clear all drawings.
+     * @desc Ctrl-Shift-Z and clicked to draw. Ctrl-Shift-Up to increase line width. 
+     * Ctrl-Shift-Down to decrease line width. Ctrl-Shift-M to clear all drawings.
      */
     sketch.keyPressed = function() {
         if (sketch.keyCode === 90 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
