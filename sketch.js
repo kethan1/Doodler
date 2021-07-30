@@ -19,24 +19,24 @@ let p5js_namespace = function(sketch) {
     }
 
     /**
-     * @desc Ctrl-Z and clicked to draw. Up arrow to increase line width. Down arrow to
+     * @desc Ctrl-Shift-Z and clicked to draw. Up arrow to increase line width. Down arrow to
      * decrease line width. Ctrl-M to clear all drawings.
      */
     sketch.keyPressed = function() {
-        if (sketch.keyCode === 90 && sketch.keyIsDown(17)) {
+        if (sketch.keyCode === 90 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
             drawing = !drawing;
             if (drawing) {
                 canvas.style('pointer-events', 'auto');
             } else {
                 canvas.style('pointer-events', 'none');
             }
-        } else if (sketch.keyCode === 40) {
+        } else if (sketch.keyCode === 40 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
             if (lineWidth > 1) {
                 lineWidth--;
             }
-        } else if (sketch.keyCode === 38) {
+        } else if (sketch.keyCode === 38 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
             lineWidth++;
-        } else if (sketch.keyCode === 77 && sketch.keyIsDown(17)) {
+        } else if (sketch.keyCode === 77 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
             sketch.clear();
         }
     }
