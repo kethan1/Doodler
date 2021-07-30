@@ -9,6 +9,9 @@
         "js": ["p5.min.js", "sketch.js"]
     }],
     "icons": {
+        "16": "doodler16.png",
+        "32": "doodler32.png",
+        "48": "doodler48.png",
         "128": "doodler128.png"
     }
 }

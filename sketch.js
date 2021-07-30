@@ -23,22 +23,23 @@ let p5js_namespace = function(sketch) {
      * Ctrl-Shift-Down to decrease line width. Ctrl-Shift-M to clear all drawings.
      */
     sketch.keyPressed = function() {
-        if (sketch.keyCode === 90 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
-            drawing = !drawing;
-            if (drawing) {
-                canvas.style('pointer-events', 'auto');
-            } else {
-                canvas.style('pointer-events', 'none');
-            }
-        } else if (sketch.keyCode === 40 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
-            if (lineWidth > 1) {
+        // 17 is Ctrl, 16 is Shift
+        if (sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
+            if (sketch.keyCode === 90) {
+                drawing = !drawing;
+                if (drawing)
+                    canvas.style('pointer-events', 'auto');
+                else
+                    canvas.style('pointer-events', 'none');
+            } else if (sketch.keyCode === 40 && lineWidth > 1) {
                 lineWidth--;
+            } else if (sketch.keyCode === 38) {
+                lineWidth++;
+            } else if (sketch.keyCode === 77) {
+                sketch.clear();
             }
-        } else if (sketch.keyCode === 38 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
-            lineWidth++;
-        } else if (sketch.keyCode === 77 && sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
-            sketch.clear();
         }
+        
     }
 }
 
