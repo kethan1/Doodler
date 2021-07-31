@@ -4,7 +4,7 @@ let p5js_namespace = function(sketch) {
     let offsetY = 0;
 
     sketch.setup = function() {
-        canvas = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
+        canvas = sketch.createCanvas(document.body.clientWidth, document.body.clientHeight);
         canvas.position(offsetX, offsetY);
         canvas.style('pointer-events', 'none');
         sketch.clear();
@@ -28,6 +28,7 @@ let p5js_namespace = function(sketch) {
         // 17 is Ctrl, 16 is Shift
         if (sketch.keyIsDown(17) && sketch.keyIsDown(16)) {
             if (sketch.keyCode === 90) {
+                console.log("Enabling drawing mode")
                 drawing = !drawing;
                 canvas.style('pointer-events', drawing ? 'auto': 'none');
             } else if (sketch.keyCode === 40 && lineWidth > 1) {
